@@ -1,0 +1,19 @@
+<robot name="apollo_lunar_module">
+  <link name="base">
+    <visual>
+      <geometry>
+        <mesh filename="apollo_lunar_module.obj" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="apollo_lunar_module.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="10200"/>
+      <inertia ixx="20000" iyy="20000" izz="10000" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+</robot>
