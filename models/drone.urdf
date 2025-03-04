@@ -2,8 +2,13 @@
 <robot name="drone">
 
   <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.6"/> <!-- Frame, battery, electronics -->
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.008" iyz="0" izz="0.010"/>
+    </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <box size="0.4 0.2 0.04"/>
       </geometry>
@@ -12,7 +17,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <box size="0.4 0.2 0.04"/>
       </geometry>
@@ -20,8 +25,13 @@
   </link>
 
   <link name="FL">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/> <!-- Motor + prop -->
+      <inertia ixx="0.0004" ixy="0" ixz="0" iyy="0.0004" iyz="0" izz="0.0008"/>
+    </inertial>
     <visual>
-      <origin xyz="0.16 0.13 0" rpy="0 0 0" />
+      <origin xyz="0.16 0.13 0" rpy="0 0 0"/>
       <geometry>
         <cylinder length="0.03" radius="0.13"/>
       </geometry>
@@ -32,8 +42,13 @@
   </link>
 
   <link name="FR">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.0004" ixy="0" ixz="0" iyy="0.0004" iyz="0" izz="0.0008"/>
+    </inertial>
     <visual>
-      <origin xyz="0.16 -0.13 0" rpy="0 0 0" />
+      <origin xyz="0.16 -0.13 0" rpy="0 0 0"/>
       <geometry>
         <cylinder length="0.03" radius="0.13"/>
       </geometry>
@@ -44,8 +59,13 @@
   </link>
 
   <link name="BL">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.0004" ixy="0" ixz="0" iyy="0.0004" iyz="0" izz="0.0008"/>
+    </inertial>
     <visual>
-      <origin xyz="-0.16 0.13 0" rpy="0 0 0" />
+      <origin xyz="-0.16 0.13 0" rpy="0 0 0"/>
       <geometry>
         <cylinder length="0.03" radius="0.13"/>
       </geometry>
@@ -56,8 +76,13 @@
   </link>
 
   <link name="BR">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.0004" ixy="0" ixz="0" iyy="0.0004" iyz="0" izz="0.0008"/>
+    </inertial>
     <visual>
-      <origin xyz="-0.16 -0.13 0" rpy="0 0 0" />
+      <origin xyz="-0.16 -0.13 0" rpy="0 0 0"/>
       <geometry>
         <cylinder length="0.03" radius="0.13"/>
       </geometry>
@@ -70,21 +95,25 @@
   <joint name="base_to_FL" type="fixed">
     <parent link="base_link"/>
     <child link="FL"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
   <joint name="base_to_FR" type="fixed">
     <parent link="base_link"/>
     <child link="FR"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
   <joint name="base_to_BL" type="fixed">
     <parent link="base_link"/>
     <child link="BL"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
   <joint name="base_to_BR" type="fixed">
     <parent link="base_link"/>
     <child link="BR"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
   <gazebo reference="base_link">
