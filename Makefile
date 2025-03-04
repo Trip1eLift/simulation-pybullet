@@ -12,4 +12,4 @@ install:
 	python3 -m pip install -r requirements.txt
 
 start:
-	python3 main.py
+	python3 src/main.py
