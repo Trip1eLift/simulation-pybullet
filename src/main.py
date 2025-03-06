@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from drone import Drone  # Import the Drone class
 from pid import PIDController
+import os
 
 TimeStep = 1./30.
 
@@ -34,6 +35,9 @@ kd_slider = p.addUserDebugParameter("Altitude PID - Kd", 0.0, 0.5, 0.3)
 slider_id = p.addUserDebugParameter("Target Altitude", 0.0, 10.0, 3.0)  # Set initial value to 3.0 meters
 
 time_text_id = p.addUserDebugText("Time: 0.00 s", [0, 0, 1.6], textSize=1, lifeTime=0.5)
+
+# Create output directory if it doesn't exist
+os.makedirs("output", exist_ok=True)
 
 # Simulation loop
 sim_time = 0
@@ -108,8 +112,15 @@ while True:
     ax3.set_ylabel("Motor Speed (RPM)")
 
     # Draw the updated plot
+    plt.tight_layout()
     plt.pause(0.01)
 
     # Step the simulation
     p.stepSimulation()
     sim_time += TimeStep
+    
+    if sim_time >= 5.0 and int(sim_time) % 5 == 0 and int(sim_time) <= 60:
+        plt.savefig(f"output/drone_plot_{int(sim_time)}s.png", dpi=300)
+
+    if sim_time > 60.0:
+        break
